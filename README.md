@@ -1,4 +1,4 @@
-# Blogful client
+# Winning Eleven Web App
 
 ## Scripts
 
