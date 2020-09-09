@@ -4,7 +4,7 @@ import Header from "../Header/Header";
 import PrivateRoute from "../Utils/PrivateRoute";
 import PublicOnlyRoute from "../Utils/PublicOnlyRoute";
 import TeamListPage from "../../routes/TeamListPage/TeamListPage";
-import TeamPage from "../../routes/NewTeamPage/NewTeamPage";
+import TeamPage from "../../routes/TeamPage/TeamPage";
 import LoginPage from "../../routes/LoginPage/LoginPage";
 import RegistrationPage from "../../routes/RegistrationPage/RegistrationPage";
 import NewTeamPage from "../../routes/NewTeamPage/NewTeamPage";
@@ -54,12 +54,11 @@ class App extends Component {
           {this.state.hasError && <p className="red">There was an error!</p>}
           <Switch>
             <Route exact path={"/"} component={TeamListPage} />
-            <Route path={"/kevin"} component={NewTeamPage} />
             <PublicOnlyRoute path={"/login"} component={LoginPage} />
             <PublicOnlyRoute path={"/register"} component={RegistrationPage} />
             <PrivateRoute path={"/newteam"} component={NewTeamPage} />
             <PrivateRoute path={"/teams/:teamId"} component={TeamPage} />
-            {/*<Route component={NotFoundPage} />*/}
+            {<Route component={NotFoundPage} />}
           </Switch>
         </main>
       </div>

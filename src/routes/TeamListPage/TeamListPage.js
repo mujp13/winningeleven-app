@@ -9,14 +9,16 @@ export default class TeamListPage extends Component {
 
   componentDidMount() {
     //this.context.clearError();
-    //TeamApiService.getTeams()
-    //  .then(this.context.setTeamList)
-    //  .catch(this.context.setError);
+    TeamApiService.getTeams()
+      .then(this.context.setTeamList)
+      .catch(this.context.setError);
   }
 
   renderTeams() {
     const { TeamList = [] } = this.context;
-    return TeamList.map((Team) => <TeamListItem key={Team.id} Team={Team} />);
+    return TeamList.map((Team, index) => (
+      <TeamListItem key={index} Team={Team} />
+    ));
   }
 
   render() {

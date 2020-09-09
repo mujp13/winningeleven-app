@@ -9,10 +9,10 @@ export default class TeamListItem extends Component {
   render() {
     const { Team } = this.props;
     return (
-      <Link to={`/Team/${Team.id}`} className="TeamListItem">
+      <Link to={`/teams/${Team.id}`} className="TeamListItem">
         <header className="TeamListItem__header">
-          <h2 className="TeamListItem__heading">{Team.name}</h2>
-          {/*<TeamDate Team={Team} />*/}
+          <h2 className="TeamListItem__heading">{Team.team_name}</h2>
+          {<TeamDate Team={Team} />}
         </header>
         <footer className="TeamListItem__footer">
           <TeamStyle Team={Team} />
@@ -38,17 +38,17 @@ function TeamDate({ Team }) {
   );
 }
 
-function TeamAuthor({ Team }) {
-  return <span className="TeamListItem__author">{Team.author.full_name}</span>;
-}
+// function TeamAuthor({ Team }) {
+//   return <span className="TeamListItem__author">{Team.author.full_name}</span>;
+// }
 
-function TeamCommentCount({ Team }) {
-  return (
-    <span className="TeamListItem__comment-count fa-layers fa-fw">
-      <FontAwesomeIcon size="lg" icon="comment" />
-      <span className="fa-layers-text fa-inverse">
-        {Team.number_of_comments}
-      </span>
-    </span>
-  );
-}
+// function TeamCommentCount({ Team }) {
+//   return (
+//     <span className="TeamListItem__comment-count fa-layers fa-fw">
+//       <FontAwesomeIcon size="lg" icon="comment" />
+//       <span className="fa-layers-text fa-inverse">
+//         {Team.number_of_comments}
+//       </span>
+//     </span>
+//   );
+// }

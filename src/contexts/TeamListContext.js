@@ -7,24 +7,16 @@ const TeamListContext = React.createContext({
   clearError: () => {},
   setTeamList: () => {},
 });
+
 export default TeamListContext;
 
 export class TeamListProvider extends Component {
   state = {
-    TeamList: [
-      {
-        name: "Real Madrid",
-      },
-      {
-        name: "Barcelona",
-      },
-      {
-        name: "Atletico Mg",
-      },
-      {
-        name: "Tottenham Hotspurs",
-      },
-    ],
+    TeamList: [],
+    team: {
+      team: {},
+      teamplayer: [],
+    },
     error: null,
   };
 
@@ -43,6 +35,7 @@ export class TeamListProvider extends Component {
 
   render() {
     const value = {
+      team: this.state.team,
       TeamList: this.state.TeamList,
       error: this.state.error,
       setError: this.setError,

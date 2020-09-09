@@ -15,16 +15,24 @@ export default class TeamPage extends Component {
     teamName: [],
     teams: [],
     players: [],
+    searchPlayer: "",
   };
 
   componentDidMount() {
     teamAPI.getPlayers().then((res) => {
-      console.log(res);
       this.setState({
         players: res,
       });
     });
   }
+
+  searchPlayers = (e) => {
+    const name = e.target.value;
+    this.setState({
+      searched: name.toLowerCase(),
+    });
+    console.log(this.state);
+  };
 
   addTeamName = (e) => {
     const teamName = e.target.value;
@@ -34,7 +42,6 @@ export default class TeamPage extends Component {
   };
 
   addPlayer = (player) => {
-    console.log(player);
     this.setState({
       teams: this.state.teams.concat(player),
     });
@@ -42,7 +49,7 @@ export default class TeamPage extends Component {
 
   removePlayer = (player) => {
     this.setState({
-      teams: this.state.teams.filter((p) => p.name != player.name),
+      teams: this.state.teams.filter((p) => p.name !== player.name),
     });
   };
 
@@ -53,21 +60,20 @@ export default class TeamPage extends Component {
       team_name: this.state.teamName,
       players: this.state.teams,
     };
-    console.log(newTeam);
     teamAPI.postTeam(newTeam).then((res) => {
-      console.log(res);
       const { history } = this.props;
       history.push("/");
     });
   };
 
   render() {
+    console.log(this.state);
     return (
       <>
         <form onSubmit={(e) => this.handleSubmit(e)}>
           <div className="team_name">
             <label htmlFor="CreateTeam__team_name">
-              Team name <Required />
+              Choose your team name <Required />
             </label>
             <Input
               onChange={this.addTeamName}
@@ -76,23 +82,39 @@ export default class TeamPage extends Component {
               id="CreateTeam__team_name"
             ></Input>
           </div>
-          <h2>Team Players</h2>
-          {this.state.teams.map((team) => (
-            <div>{team.full_name}</div>
+          <h2>In Your Team</h2>
+          {this.state.teams.map((team, index) => (
+            <div key={index}>{team.full_name}</div>
           ))}
           <h2>All Players</h2>
-          {this.state.players.slice(0, 10).map((player) => (
-            <div>
-              {player.full_name}
-              <Button type="button" onClick={(e) => this.addPlayer(player)}>
-                add
-              </Button>
-              <Button type="button" onClick={(e) => this.removePlayer(player)}>
-                remove
-              </Button>
-            </div>
-          ))}
-          <h2>Submit when you finish</h2>
+          <label> Search players </label>
+          <Input
+            onChange={(e) => this.searchPlayers(e)}
+            type="text"
+            id="CreateTeam__search_players"
+          ></Input>
+          {this.state.players
+            .filter(
+              (player) =>
+                player.full_name.toLowerCase().indexOf(this.state.searched) >=
+                  0 || !this.state.searched
+            )
+            .slice(0, 20)
+            .map((player, index) => (
+              <div key={index}>
+                {player.full_name} ({player.position})
+                <Button type="button" onClick={(e) => this.addPlayer(player)}>
+                  add
+                </Button>
+                <Button
+                  type="button"
+                  onClick={(e) => this.removePlayer(player)}
+                >
+                  remove
+                </Button>
+              </div>
+            ))}
+          <h2>Create Team!</h2>
           <Button>Submit</Button>
         </form>
       </>

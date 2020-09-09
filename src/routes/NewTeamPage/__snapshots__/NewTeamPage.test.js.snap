@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <div
+    className="team_name"
+  >
+    <label
+      htmlFor="CreateTeam__team_name"
+    >
+      Team name 
+      <span
+        className="Required "
+      >
+        *
+      </span>
+    </label>
+    <input
+      className="Input "
+      id="CreateTeam__team_name"
+      onChange={[Function]}
+      required={true}
+      type="text"
+    />
+  </div>
+  <h2>
+    Team Players
+  </h2>
+  <h2>
+    All Players
+  </h2>
+  <h2>
+    Submit when you finish
+  </h2>
+  <button
+    className="Button "
+  >
+    Submit
+  </button>
+</form>
+`;

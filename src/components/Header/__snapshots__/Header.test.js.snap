@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+Array [
+  <nav
+    className="Header"
+  >
+    <h1>
+      <a
+        href="/"
+        onClick={[Function]}
+      >
+         Winning Eleven
+      </a>
+    </h1>
+    <div
+      className="Header__not-logged-in"
+    >
+      <a
+        href="/register"
+        onClick={[Function]}
+      >
+        Register
+      </a>
+      <span
+        className="Hyph"
+      >
+         - 
+      </span>
+      <a
+        href="/login"
+        onClick={[Function]}
+      >
+        Sign in
+      </a>
+    </div>
+  </nav>,
+  <p
+    className="landing-page"
+  >
+    You got what it takes to make the best team in the world? 
+    <br />
+     
+    Play our soccer fantasy game in which users build an imaginary team of real life players.
+  </p>,
+]
+`;
