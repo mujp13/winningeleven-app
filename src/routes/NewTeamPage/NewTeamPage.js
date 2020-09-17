@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Button, Input, Required } from "../../components/Utils/Utils";
-import { Route, Switch } from "react-router-dom";
 import teamAPI from "../../services/team-api-service";
 //import { Section } from "../../components/Utils/Utils";
 

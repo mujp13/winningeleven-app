@@ -16,8 +16,8 @@ export default class TeamListPage extends Component {
 
   renderTeams() {
     const { TeamList = [] } = this.context;
-    return TeamList.map((Team, index) => (
-      <TeamListItem key={index} Team={Team} />
+    return TeamList.map((team, index) => (
+      <TeamListItem key={index} team={team} />
     ));
   }
 

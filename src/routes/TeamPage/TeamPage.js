@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import TeamContext from "../../contexts/TeamContext";
 import TeamApiService from "../../services/team-api-service";
-import { Hyph, Button } from "../../components/Utils/Utils";
+import { Button } from "../../components/Utils/Utils";
 //import "./TeamPage.css";
 
 export default class TeamPage extends Component {
