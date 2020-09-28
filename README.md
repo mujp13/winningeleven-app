@@ -12,7 +12,7 @@ https://winningeleven-app.vercel.app/
 
 ## Screenshot
 
-![Winningeleven screenshot](https://github.com/mujp13/koffee_blog_fs/blob/master/github_screenshot.PNG)
+![Winningeleven screenshot](https://github.com/mujp13/winningeleven-app/blob/master/screenshot.PNG)
 
 ## Built With
 
